@@ -23,7 +23,7 @@ struct OnBordingView: View {
                         Button(action: {
                             self.current = 1
                         }) {
-                            NavigationLink(destination: Text("x").navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: HomeView().navigationBarBackButtonHidden(true)) {
                                 Text("تخطي")
                                     .padding()
                                     .foregroundColor(Color("OurPurple"))
@@ -40,9 +40,8 @@ struct OnBordingView: View {
                                 .scaledToFit()
                                 .frame(width: 250, height: 250)
                                 
-                            Text(" هلا فيك، في على وين؟\n تجربتك معنا على مزاجك! ")
-                                .font(.system(size: 25))
-                                .bold()
+                            Text(" هلا فيك، في تطبيق على وين؟\n تجربتك معنا على مزاجك! ")
+                                .font(.system(size: 22))
                                 .foregroundColor(Color("OurPurple"))
                              
                                 .padding()
@@ -54,7 +53,7 @@ struct OnBordingView: View {
                         VStack {
                             ZStack {
                                 VStack {
-                                    Text("خلينا نعرف اختياراتك ونخصصلك تجربة حلوة")
+                                    Text("خلينا نعرف اختياراتك ونخصص لك تجربة تناسبك")
                                         .font(.system(size: 25))
                                         .bold()
                                         .foregroundColor(Color("OurPurple"))
@@ -172,40 +171,42 @@ struct OnBordingView: View {
     }
     
     private func updateUserSelection() {
-        userSelection = "تحديد المستخدم: \(localized(category ?? "")), \(localized(subCategory1 ?? "")), \(localized(subCategory2 ?? ""))"
+        userSelection = "\(localized(category ?? "")), \(localized(subCategory1 ?? "")), \(localized(subCategory2 ?? ""))"
+        
+        
     }
     
     private func localized(_ word: String) -> String {
         // Replace Arabic words with English translations
         switch word {
         case "ترفيه":
-            return "Entertainment"
+            return "entertainment"
         case "إنجاز":
-            return "Achievement"
+            return "productivity"
         case "تمشية":
-            return "Going Out"
+            return "going out"
         case "مأكولات":
-            return "Food"
+            return "food"
         case "ميزانية أول الشهر":
-            return "Early Month Budget"
+            return "fbudget"
         case "ميزانية آخر الشهر":
-            return "Late Month Budget"
+            return "lbudget"
         case "مقهى":
-            return "Cafe"
+            return "cafe"
         case "مطعم":
-            return "Restaurant"
+            return "restaurant"
         case "أداء المهام":
-            return "Task Performance"
+            return "tasks"
         case "الاجتماعات":
-            return "Meetings"
+            return "meeting"
         case "مهيأ":
-            return "Prepared"
+            return "prepared"
         case "مخصص":
-            return "Equipped"
+            return "equipped"
         case "رسمي":
-            return "Formal"
+            return "formal"
         case "غير رسمي":
-            return "Informal"
+            return "informal"
         default:
             return word
         }
@@ -231,7 +232,7 @@ struct OptionsView: View {
                         .cornerRadius(25)
                         .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 2)
                 }
-                .padding()
+                .padding(.horizontal, 10)
                 
             }
         }
@@ -243,14 +244,13 @@ struct ResultView: View {
     
     var body: some View {
         VStack {
-            
             Text(userSelection)
-                .padding()
-                .padding()
-            
+            NavigationLink("go", destination: HomeView())
         }
         .padding()
+        .navigationBarBackButtonHidden(true) // This line hides the back button
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

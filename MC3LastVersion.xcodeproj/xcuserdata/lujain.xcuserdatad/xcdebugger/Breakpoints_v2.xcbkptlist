@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "60E4CCFB-07D7-4C63-8F99-64844B8EA552"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C537B01C-78FB-4DA6-BFE9-9091265D3A8A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MC3LastVersion/Views/OnBordingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "ResultView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "C537B01C-78FB-4DA6-BFE9-9091265D3A8A - 1b26dfb7b1b3294"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0 in closure #1 (Swift.String) -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt; in MC3LastVersion.OptionsView.body.getter : some"
+                  moduleName = "MC3LastVersion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lujain/Downloads/Archive/MC3LastVersion/Views/OnBordingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "248"
+                  endingLineNumber = "248"
+                  offsetFromSymbolStart = "1648">
+               </Location>
+               <Location
+                  uuid = "C537B01C-78FB-4DA6-BFE9-9091265D3A8A - 727bde1f276e38c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC3LastVersion.ContentView_Previews.init() -&gt; MC3LastVersion.ContentView_Previews"
+                  moduleName = "MC3LastVersion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lujain/Downloads/Archive/MC3LastVersion/Views/OnBordingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

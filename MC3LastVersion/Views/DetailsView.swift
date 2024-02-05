@@ -34,10 +34,10 @@ struct DetailsView: View {
                     Image(img)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: .infinity, alignment: .top)
-                        .edgesIgnoringSafeArea(.all)
-                        .cornerRadius(18)
-                        .padding(.top, -80)
+                        .frame(width: 430, alignment: .top)
+                        //.edgesIgnoringSafeArea(.all)
+                       // .cornerRadius(18)
+                        .padding(.top, -122)
                     
                     // Like button with heart icon
                     Button(action: {
@@ -51,7 +51,7 @@ struct DetailsView: View {
                             .padding(20)
                             .background(Circle().fill(Color.white).opacity(0.9))
                     }
-                    .padding(.top, 230)
+                    .padding(.top, 160)
                     .padding(.trailing, 300)
                 }
                 
@@ -67,23 +67,26 @@ struct DetailsView: View {
                                 .padding(.leading, -10)
                         }
                     }
-                    .padding(.trailing, 160)
+                    .padding(.trailing, 140)
 
                     
                     // Cafe name and pricing information
                     VStack(alignment: .trailing) {
                         Text(name)
-                            .font(.headline)
+                            .font(
+                                Font.custom("SF Arabic", size: 18)
+                                    .weight(.bold)
+                            ).padding(.trailing, 10)
                         
                         HStack(alignment: .top) {
                             Text(price)
                                 .font(
-                                    Font.custom("SF Arabic", size: 12)
+                                    Font.custom("SF Arabic", size: 14)
                                         .weight(.bold)
                                 )
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(Color(red: 0.64, green: 0.63, blue: 0.63))
-                                .frame(width: 63, height: 19, alignment: .top)
+                                .frame(width: 150, height: 19, alignment: .top)
                             
                             // Display "rang money" image
                             Image("rang money")
@@ -91,11 +94,11 @@ struct DetailsView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 24, height: 23)
                                 .clipped()
-                                .padding(.leading, -10)
+                                .padding(.leading, -19)
                         }
                     }
                 }
-                .padding()
+                .padding(.trailing, 30)
                 
                 // Divider line
                 Divider()
@@ -116,7 +119,7 @@ struct DetailsView: View {
                     Text("نظرة عامة")
                         .font(
                             Font.custom("SF Arabic", size: 20)
-                                .weight(.semibold)
+                                .weight(selectedTab == .overview ? .bold : .semibold)
                         )
                         .multilineTextAlignment(.center)
                         .foregroundColor(selectedTab == .overview ? Color(red: 0.41, green: 0.16, blue: 0.38) : .gray)
@@ -126,7 +129,7 @@ struct DetailsView: View {
                             selectedTab = .overview
                         }
                 }
-                .padding()
+                .padding(.trailing, 30).padding(.top, 10)
                 
                 // Content based on the selected tab
                 if selectedTab == .overview {
@@ -144,7 +147,7 @@ struct DetailsView: View {
                                 .frame(width: 10, height: 10)
                               //  .padding(.trailing, 6)
                             
-                                .padding(.trailing, 165)
+                                .padding(.trailing, 195)
                         }
                         Text(rashHour)
                             .font(
@@ -162,7 +165,7 @@ struct DetailsView: View {
                             .frame(width: 24, height: 23)
                             .clipped()
                             .padding(.trailing, 20)
-                    }
+                    }.padding(.trailing, 20)
                     
                     // Detailed overview of the cafe
                     Text(overview)
@@ -170,7 +173,7 @@ struct DetailsView: View {
                         .multilineTextAlignment(.trailing)
                         .foregroundColor(.black)
                         .frame(width: 349, height: 136, alignment: .topTrailing)
-                        .padding(.trailing, 20)
+                        .padding(.trailing, 40)
                 } else if selectedTab == .comments {
                     CommentView()
                 }
@@ -195,6 +198,6 @@ struct DetailsView: View {
 }
 
 #Preview {
-    DetailsView(name: "test", img: "mg1", acceessability: true, music: true, price: "60", overview: "test overvuew", rashHour: "9 pm -7 pm")
+    DetailsView(name: "test", img: "Gdeer", acceessability: true, music: true, price: "60", overview: "test overvuew", rashHour: "9 pm -7 pm")
 }
 

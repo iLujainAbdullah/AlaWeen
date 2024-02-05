@@ -12,7 +12,7 @@ struct MC3LastVersionApp: App {
     var body: some Scene {
         WindowGroup {
            // LoginView()
-            HomeView()
+            ContentView()
         }
     }
 }

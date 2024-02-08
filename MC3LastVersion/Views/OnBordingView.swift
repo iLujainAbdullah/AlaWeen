@@ -1,4 +1,6 @@
 import SwiftUI
+import CoreML
+
 
 struct OnBordingView: View {
     @State var current = 0
@@ -9,6 +11,8 @@ struct OnBordingView: View {
     @State private var subCategory2: String?
     @State private var userSelection: String?
     @State private var isNavigationActive = false
+    
+
     
     init() {
         UIScrollView.appearance().bounces = false
@@ -23,7 +27,7 @@ struct OnBordingView: View {
                         Button(action: {
                             self.current = 1
                         }) {
-                            NavigationLink(destination: HomeView().navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                                 Text("تخطي")
                                     .padding()
                                     .foregroundColor(Color("OurPurple"))
@@ -241,17 +245,55 @@ struct OptionsView: View {
 
 struct ResultView: View {
     var userSelection: String
+    @StateObject var model = Model()
     
     var body: some View {
         VStack {
-            Text(userSelection)
-            NavigationLink("go", destination: HomeView())
+           // let cat = classify(input: userSelection)
+            Text(classify(input: userSelection))
+            
+                .padding()
+//            //Test
+//                .onAppear(){
+//                    Task {
+//                        do{
+//                            try await model.fetchItems(category: cat )
+//                        }catch {
+//                            print(error.localizedDescription)
+//                        }
+//                    }
+//                }
+//            ForEach(model.places.prefix(1), id: \.recordID) { item in
+//                NavigationLink(destination: DetailsView( name: item.name, img: item.img,acceessability: item.accessability, music:item.music, price: item.price, overview: item.overview, rashHour: item.rushHour)) {
+//                    TrendCardView(name: item.name, img: item.img)
+//                }
+//            }
+            
+            
+            NavigationLink("إبدا", destination: MainView())
         }
         .padding()
         .navigationBarBackButtonHidden(true) // This line hides the back button
     }
 
 }
+
+//MARK: Text Classifier Model function
+
+private func classify(input: String) -> String {
+        guard let model = try? TextClassifer(configuration: .init()),
+              let prediction = try? model.prediction(text: input) else {
+            return "Something went wrong"
+        }
+        
+        return prediction.label
+    }
+
+
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -20,7 +20,8 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                NavigationLink(destination: MainView()){
+                NavigationLink(destination: MainView().navigationBarBackButtonHidden(true)
+                ){
                 Label("تخطي", systemImage: "")
                         .padding(.leading, 260.0)
                         .padding(.top,20)
@@ -31,8 +32,9 @@ struct LoginView: View {
                 
 //MARK: Adding Logo
                 //Image
-                Text("Logo")
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 120)
+                Image("logoAla")
+                    .resizable()
+                    .frame(width: 200, height: 160)
                     .padding(.vertical ,32)
                 
                 
@@ -54,9 +56,9 @@ struct LoginView: View {
                 } label: {
                     
                     HStack{
-                        Text("SIGN IN")
+                        Text("تسجيل الدخول")
                             .fontWeight(.semibold)
-                        Image(systemName: "arrow.right")
+                        Image(systemName: "arrow.left")
                     }//HStack
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 32 , height: 47)
@@ -71,7 +73,7 @@ struct LoginView: View {
                         .frame(width: (UIScreen.main.bounds.width / 2 ) - 40  , height: 0.5)
                         .foregroundColor(.gray)
                     
-                    Text("OR")
+                    Text("او")
                         .font(.footnote)
                         .fontWeight(.semibold)
                     
@@ -92,8 +94,8 @@ struct LoginView: View {
                         .navigationBarBackButtonHidden(true)
                 }label: {
                     HStack(spacing: 3){
-                        Text("Don't have an account ?")
-                        Text("Sign up")
+                        Text("ما عندك حساب ؟")
+                        Text("تسجيل حساب")
                             .fontWeight(.bold)
                     }//HStack
                     .font(.system(size: 14))
@@ -101,10 +103,16 @@ struct LoginView: View {
                     
                     
                 }//Label
+                
             }//vstack
+            
         }//navigationStack
+        .environment(\.layoutDirection,.rightToLeft)
+        
     }//Body
+        
 }//LoginView
+    
 
 #Preview {
     LoginView()

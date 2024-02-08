@@ -41,6 +41,7 @@ struct MainView: View {
 
             }//tabView
         }//VStack
+        .navigationBarBackButtonHidden(true)
         .environment(\.layoutDirection,.rightToLeft)
     }//Body
         

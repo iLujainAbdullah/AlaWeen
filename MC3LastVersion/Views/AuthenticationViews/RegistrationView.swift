@@ -16,8 +16,9 @@ struct RegistrationView: View {
     var body: some View {
         VStack{
             //Image
-            Text("Logo")
-                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 120)
+            Image("logoAla")
+                .resizable()
+                .frame(width: 200, height: 160)
                 .padding(.vertical ,32)
             
             
@@ -25,17 +26,17 @@ struct RegistrationView: View {
             VStack(spacing: 24){
                 
                 //Email input
-                InputView(text: $email, title: "Email Address", placeHolder: "name@example.com")
+                InputView(text: $email, title: "البريد", placeHolder: "name@example.com")
                     .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 
                 //Full Name input
-                InputView(text: $fullName, title: "Full Name", placeHolder: "Enter your name")
+                InputView(text: $fullName, title: "الاسم", placeHolder: "Enter your name")
                 
                 //Password input
-                InputView(text: $password, title: "Password", placeHolder: "Enter your password", isSecureField: true)
+                InputView(text: $password, title: "كلمة المرور", placeHolder: "Enter your password", isSecureField: true)
                 
                 //Confirm Password
-                InputView(text: $confirmPassword, title: "Confirm password", placeHolder: "Confirm your password" , isSecureField: true)
+                InputView(text: $confirmPassword, title: "تأكيد كلمة المرور", placeHolder: "Confirm your password" , isSecureField: true)
                 
                 
             }//vstack
@@ -47,9 +48,9 @@ struct RegistrationView: View {
                 print("Sign user up")
             } label: {
                 HStack{
-                    Text("SIGN UP")
+                    Text("تسجيل حساب جديد")
                         .fontWeight(.semibold)
-                    Image(systemName: "arrow.right")
+                    Image(systemName: "arrow.left")
                 }//HStack
                 .foregroundColor(.white)
                 .frame(width: UIScreen.main.bounds.width - 32 , height: 48)
@@ -64,14 +65,16 @@ struct RegistrationView: View {
                 dismiss()
             } label: {
                 HStack(spacing: 3){
-                    Text("Already have an account ?")
-                    Text("Sign in")
+                    Text("عندك حساب ؟")
+                    Text("تسجيل الدخول")
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
                 .font(.system(size:14))
             }
         }//VStack
+        .environment(\.layoutDirection,.rightToLeft)
     }//body
+        
 }//RegistrationView
 
 #Preview {
